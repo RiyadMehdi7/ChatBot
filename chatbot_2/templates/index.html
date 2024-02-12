@@ -5,8 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <!-- Include the Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Additional CSS styles */
+        body {
+            font-family: 'Roboto', sans-serif; /* Use Roboto font for the body */
+        }
+
         .container {
             display: flex;
             height: 100vh;
@@ -42,6 +50,36 @@
             background-color: #0056b3;
         }
 
+        .saved-chats {
+            margin-top: 20px;
+        }
+
+        .saved-chats h3 {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .saved-chat {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #eef3f8;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+        .saved-chat:hover {
+            background-color: #dde6f1;
+        }
+
+        .saved-chat p {
+            margin: 0;
+        }
+
+        .saved-chat small {
+            color: #777;
+        }
+
+        /* Styles for the chat container */
         .chat-container {
             flex-grow: 1;
             padding: 20px;
@@ -75,8 +113,21 @@
         <div class="left-box">
             <button id="new-chat-button">New Chat</button>
             <button id="save-chat-button">Save Chat</button>
-            <div id="saved-chats-list"></div>
-            
+            <div class="saved-chats">
+                <h3>Saved Chats</h3>
+                <div id="saved-chats-list">
+                    <!-- Saved chats will be displayed here -->
+                    <div class="saved-chat">
+                        <p>This is a saved chat message.</p>
+                        <small>Today, 12:30 PM</small>
+                    </div>
+                    <div class="saved-chat">
+                        <p>This is another saved chat message.</p>
+                        <small>Yesterday, 3:45 PM</small>
+                    </div>
+                    <!-- Add more saved chats as needed -->
+                </div>
+            </div>
         </div>
         <div class="chat-container">
             <div class="chat-box" id="chat-box">
@@ -88,202 +139,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        function sendQuestion() {
-            var question = document.getElementById("user-input").value.trim();
-            if (question === "") return;
-
-            displayUserQuestion(question);
-
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "/ask", true);
-            xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        var response = JSON.parse(xhr.responseText).response;
-                        displayResponse(response);
-                    }
-                }
-            };
-            xhr.send(JSON.stringify({ question: question }));
-            document.getElementById("user-input").value = "";
-        }
-
-        function displayUserQuestion(question) {
-            var chatBox = document.getElementById("chat-box");
-            var userLabel = document.createElement("div");
-            var userMessage = document.createElement("div");
-            userMessage.className = "user-message";
-            userMessage.textContent = question;
-            chatBox.appendChild(userLabel);
-            chatBox.appendChild(userMessage);
-        }
-
-        function displayResponse(response) {
-            var chatBox = document.getElementById("chat-box");
-            var botLabel = document.createElement("div");
-            botLabel.textContent = "Bizdən Biri";
-            var botMessage = document.createElement("div");
-            botMessage.className = "bot-message";
-            botMessage.textContent = response;
-            chatBox.appendChild(botLabel);
-            chatBox.appendChild(botMessage);
-
-            // Check if the response is the specific message
-            if (response === "Təəssüf edirəm, sualınıza cavab verə bilmirəm. FAQ hissəsinə keçə bilərsiniz") {
-                // Create a FAQ button
-                var faqButton = document.createElement("button");
-                faqButton.textContent = "FAQ";
-                faqButton.onclick = displayCategories;
-                chatBox.appendChild(faqButton);
-            }
-        }
-
-        function displayCategories() {
-            var chatBox = document.getElementById("chat-box");
-
-            // Clear the chat box
-            chatBox.innerHTML = "";
-
-            // List of categories
-            var categories = {
-                "Promotion": ["Maaş artımı", "Vəzifə Artımı"],
-                "Benefits": ["Sığorta", "Dəyərlisən"],
-                "Training": ["ISpring", "Məcburi təlimlər"],
-                "Performance review": ["Overall Information"]
-            };
-
-            // Create a button for each category and append it to the chat box
-            for (var category in categories) {
-                var categoryButton = document.createElement("button");
-                categoryButton.className = "category-button";
-                categoryButton.textContent = category;
-                categoryButton.onclick = function() {
-                    displaySubcategories(this.textContent, categories[this.textContent]);
-                };
-                chatBox.appendChild(categoryButton);
-            }
-        }
-
-        function displaySubcategories(category, subcategories) {
-            var chatBox = document.getElementById("chat-box");
-
-            // Clear the chat box
-            chatBox.innerHTML = "";
-
-            // Create a header for the selected category
-            var categoryHeader = document.createElement("div");
-            categoryHeader.className = "category-header";
-            categoryHeader.textContent = category;
-            chatBox.appendChild(categoryHeader);
-
-            // Display the ready answer for the selected category
-            var readyAnswer = "Ready answer for " + category; // You can replace this with the actual answer
-            var readyAnswerDiv = document.createElement("div");
-            readyAnswerDiv.className = "bot-message";
-            readyAnswerDiv.textContent = "Bizdən Biri: " + readyAnswer;
-            chatBox.appendChild(readyAnswerDiv);
-
-            // Display the initial message again
-            displayInitialMessage();
-        }
-
-        function displayInitialMessage() {
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "/initial_message", true);
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                    var initialMessage = JSON.parse(xhr.responseText).initial_message;
-                    displayResponse(initialMessage);
-                }
-            };
-            xhr.send();
-        }
-
-        // Function to display the initial message from the Flask backend
-        window.onload = function() {
-            displayInitialMessage();
-        };
-        document.getElementById("new-chat-button").addEventListener("click", function() {
-    // Clear the chat box for a new chat
-        document.getElementById("chat-box").innerHTML = "";
-            displayInitialMessage();
-            });
-            function saveChat() {
-    // Get the chat box
-    var chatBox = document.getElementById("chat-box");
-
-    // Get the chat messages
-    var chatMessages = Array.from(chatBox.children).map(function(message) {
-        return {
-            sender: message.className,
-            message: message.textContent
-        };
-    });
-
-    function saveChat() {
-    // Get the chat box
-    var chatBox = document.getElementById("chat-box");
-
-    // Get the chat messages
-    var chatMessages = Array.from(chatBox.children).map(function(message) {
-        return {
-            sender: message.className,
-            message: message.textContent
-        };
-    });
-
-    // Generate a name for the chat
-    var chatName;
-    if (chatMessages.length > 0) {
-        var firstMessage = chatMessages[0].message;
-        var firstKeyword = firstMessage.split(" ")[0]; // Get the first keyword
-        chatName = firstKeyword ? firstKeyword : "Chat";
-    } else {
-        chatName = "Chat";
-    }
-
-    // Save the chat messages to localStorage
-    localStorage.setItem(chatName, JSON.stringify(chatMessages));
-
-    // Add the chat to the list of saved chats
-    var savedChatsList = document.getElementById("saved-chats-list");
-    var listItem = document.createElement("li");
-    listItem.textContent = chatName;
-    listItem.onclick = function() {
-        loadChat(chatName);
-    };
-    savedChatsList.appendChild(listItem);
-}
-
-// Call the saveChat function when the "Save Chat" button is clicked
-document.getElementById("save-chat-button").addEventListener("click", saveChat);
-
-    function loadChat(chatId) {
-    // Get the saved chat messages from localStorage
-        var chat = JSON.parse(localStorage.getItem(chatId));
-
-    // Get the chat box
-        var chatBox = document.getElementById("chat-box");
-
-    // Clear the chat box
-        chatBox.innerHTML = "";
-
-    // Display the saved chat messages
-    for (var i = 0; i < chat.length; i++) {
-        // Code to be executed for each iteration
-    }
-        var messageDiv = document.createElement("div");
-        messageDiv.className = chat[i].sender;
-        messageDiv.textContent = chat[i].message;
-        chatBox.appendChild(messageDiv);
-    }
-}
-
-    // Call the saveChat function when the "Save Chat" button is clicked
-    document.getElementById("save-chat-button").addEventListener("click", saveChat);
-    </script>    
 </body>
 </html>

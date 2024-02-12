@@ -37,7 +37,7 @@ RESPONSES = {
         "Birbaşa rəhbər, əməkdaşın doğrudan tabe olduğu ilkin rəhbərdir.",
         "Birbaşa rəhbər, əməkdaşın ən yaxın rəhbəri, onun doğrudan tabe olduğu ilkin rəhbərdir.",
         "Birbaşa rəhbər, əməkdaşın doğrudan tabe olduğu ilkin rəhbərdir və onunla ən yaxın əlaqə saxlayan şəxsdir.",
-        "Birbaşa rəhbər, əməkdaşın doğrudan tabe olduğu ilkin rəhbərdir və iş əlaqələrində ən yaxın şəxstir.",
+        "Birbaşa rəhbər, əməkdaşın doğrudan tabe olduğu ilkin rəhbərdir və iş əlaqələrində ən yaxın şəxsdir.",
         "Birbaşa rəhbər, əməkdaşın doğrudan tabe olduğu ilkin rəhbərdir və işlə bağlı ən yaxın dəstək verən şəxsdir."
     ]
 }
@@ -85,7 +85,7 @@ def home():
 
 from fuzzywuzzy import process
 
-keywords = ['rəhbər', 'birbaşa rəhbər', 'kpi', 'əfg', 'kompetensiya']
+keywords = ['rəhbər', 'birbaşa rəhbər', 'kpi', 'əfg', 'kompetensiya', 'yekun fəaliyyət balı']
 
 def get_closest_match(input_word):
     closest_match = process.extractOne(input_word, keywords)
@@ -122,7 +122,7 @@ def ask():
             return jsonify({"response": "Salam! Sizə necə kömək edim?"})
 
         # check if the question is a Necəsən
-        greetings = ['necəsən', 'nə var', 'nə var nə yox']
+        greetings = ['necəsən', 'nə var', 'nə var nə yox','necəsən?']
         if question in greetings:
             return jsonify({"response": "Mən yaxşıyam, təşəkkürlər! Sizə necə kömək edə bilərəm?"})
 
