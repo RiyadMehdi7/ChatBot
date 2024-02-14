@@ -1,0 +1,263 @@
+User: salam
+User: salam
+User: salam
+User: salam
+User: birbaşa rəhbər
+User: salam
+User: birbaşa rəhbər kimdir?
+Bot: Birbaşa rəhbər, əməkdaşın doğrudan tabe olduğu ilkin rəhbərdir və işlə bağlı ən yaxın dəstək verən şəxsdir.
+User: salam
+User: salam
+User: birbaşa rəhbər kimdir
+Bot: Birbaşa rəhbər, əməkdaşın doğrudan tabe olduğu ilkin rəhbərdir və iş əlaqələrində ən yaxın şəxsdir.
+User: salam
+User: necəsən
+User: hawaryu
+User: dsajnnfjsknkfasd
+User: dcuaishduhsav
+User: what is my salary?
+User: what is my salary?
+User: what is my salary?
+User: əfg kim tərəfindən təyin olunur
+Bot: KPİ-lər, əməkdaşların hər birinin vəzifələrinə uyğun olaraq təyin olunan məqsədlərə necə nail olduğunu qiymətləndirməyə kömək edir.
+User: əfg və ya kpi̇ kim tərəfindən təyin olunur
+Bot: Təəssüf edirəm, sualınıza cavab verə bilmirəm. FAQ hissəsinə keçə bilərsiniz
+User: kpi̇ kim tərəfindən təyin olunur
+Bot: Təəssüf edirəm, sualınıza cavab verə bilmirəm. FAQ hissəsinə keçə bilərsiniz
+User: təyin
+Bot: Təəssüf edirəm, sualınıza cavab verə bilmirəm. FAQ hissəsinə keçə bilərsiniz
+User: kpi kim təyin edir
+Bot: "Direktor/ şöbə rəisi": "İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)",
+            "Direktor müavini": "Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)",
+            "Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə)": "Struktur bölmə rəhbəri",
+            "Struktur bölmə rəhbəri": "Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür"
+User: kpi kim təyin edir
+Bot: 
+            " - Direktor/ şöbə rəisi": "İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)",
+            " - Direktor müavini": "Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)",
+            " - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə)": "Struktur bölmə rəhbəri",
+            " - Struktur bölmə rəhbəri": "Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür"
+User: kpi kim təyin edir
+Bot: 
+            " - Direktor/ şöbə rəisi": "İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)"
+                                    
+            " - Direktor müavini": "Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)"
+                                    
+            " - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə)": "Struktur bölmə rəhbəri"
+                                    
+            " - Struktur bölmə rəhbəri": "Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür"
+User: kpi kim təyin edir
+Bot: 
+            " - Direktor/ şöbə rəisi": "İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)"/n
+                                    
+            " - Direktor müavini": "Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)"
+                                    
+            " - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə)": "Struktur bölmə rəhbəri"
+                                    
+            " - Struktur bölmə rəhbəri": "Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür"
+User: kpi kim təyin edir
+Bot: 
+             - Direktor/ şöbə rəisi": "İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    
+             - Direktor müavini": "Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    
+             - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə)": "Struktur bölmə rəhbəri
+                                    
+             - Struktur bölmə rəhbəri": "Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: kpi kim təyin edir
+Bot: 
+             - Direktor/ şöbə rəisi: "İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    
+             - Direktor müavini: "Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    
+             - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə)": "Struktur bölmə rəhbəri
+                                    
+             - Struktur bölmə rəhbəri: "Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: kpi kim təyin edir
+Bot: :
+User: kpi kim təyin edir
+Bot: 
+             - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    
+             - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    
+             - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri
+                                    
+             - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: kpi kim təyin edir
+Bot:  - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə) /n- Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)/n- Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri/n- Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: kpi kim təyin edir
+Bot:  - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri
+                                    - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: kpi kim təyin edir
+Bot:  - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri
+                                    - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: kpi kim təyin edir
+Bot:  - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri
+                                    - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: kim tərəfindən təyin olunur
+User: kim tərəfindən təyin olunur
+User: kim tərəfindən təyin olunur
+User: kim tərəfindən təyin olunur
+User: kim təyin edir
+User: kim təyin edir
+User: kim tərəfindən təyin olunur
+User: kpi kim təyin edir
+Bot:  - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri
+                                    - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: salam
+User: alekum
+User: kpi̇ kim tərəfindən təyin olunur?
+Bot:  - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri/n
+                                    - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: kpi kim təyin edie
+Bot:  - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri/n
+                                    - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: kpi kim tərəfidən təyin olunur
+Bot:  - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri/n
+                                    - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: kpi kim tərəfidən təyin olunur
+Bot:  - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri/n
+                                    - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: kpi kim tərəfidən təyin olunur
+Bot:  - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri/n
+                                    - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: kpi̇ kim tərəfindən təyin olunur
+Bot:  - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri/n
+                                    - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: salam
+User: kpi̇
+Bot: ƏFG-lər, əməkdaşların iş performansını, şirkətin əsas hədəflərinə uyğunluğunu və effektivliyini ölçmək üçün təyin olunan əsas göstəricilərdir.
+User: kpi̇ kim tərəfdən təyin olunur
+Bot:  - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri/n
+                                    - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: salam
+User: kpi kim təyin edir
+Bot:  - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri/n
+                                    - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: salam
+User: kpi kim təyin edir
+Bot:  - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri/n
+                                    - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: kpi kim təyin edir
+Bot:  - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri/n
+                                    - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: kpi kim təyin edir
+Bot:  - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri/n
+                                    - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: kpi kim təyin edir
+Bot:  - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri/n
+                                    - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: kpi kim təyin edir
+Bot:  - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri/n
+                                    - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: kpi kim təyin edir
+Bot:  - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri/n
+                                    - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: kpi kim təyin edir
+Bot:  - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri/n
+                                    - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: kpi kim təyin edir
+Bot:  - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri/n
+                                    - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: kpi kim təyin edir
+Bot:  - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri/n
+                                    - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: kpi kim təyin edir
+Bot:  - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri/n
+                                    - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: kpi̇
+Bot: ƏFG-lər, əməkdaşların iş performansını, şirkətin əsas hədəflərinə uyğunluğunu və effektivliyini ölçmək üçün təyin olunan əsas göstəricilərdir.
+User: salam
+User: salam
+User: promotion
+User: kpi
+Bot: KPİ-lər, əməkdaşların iş performansını izləmək və şirkətin nailiyyətini ölçmək üçün istifadə olunan müəyyən məlumat və rəqəmlərdən ibarətdir.
+User: promotion
+User: kpi
+Bot: ƏFG-lər, əməkdaşların iş performansını, şirkətin əsas hədəflərinə uyğunluğunu və effektivliyini ölçmək üçün təyin olunan əsas göstəricilərdir.
+User: kpi
+Bot: ƏFG-lər, əməkdaşların şirkətin əsas məqsədlərinə necə nail olduğunu izləmək üçün müəyyən edilmiş göstəricilərdir.
+User: salam
+User: kpi
+Bot: KPİ-lər, əməkdaşların hər birinin vəzifələrinə uyğun olaraq təyin olunan məqsədlərə necə nail olduğunu qiymətləndirməyə kömək edir.
+User: kpi haqda məlumat ver
+Bot: KPİ-lər, əməkdaşların iş təcrübəsini, performansını və əməkdaşlığını qiymətləndirmək üçün təyin olunan standart göstəricilərdən ibarətdir.
+User: bəs kpi̇-ları kim verir
+User: kpi̇ kim təyin edir
+Bot:  - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri/n
+                                    - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: salam
+User: birbaşa rəhbər kimdir
+Bot: Birbaşa rəhbər, əməkdaşın doğrudan tabe olduğu ilkin rəhbərdir.
+User: salam
+User: kpi̇ haqda məlumat ver
+Bot: KPİ-lər, əməkdaşların hər birinin vəzifələrinə uyğun olaraq təyin olunan məqsədlərə necə nail olduğunu qiymətləndirməyə kömək edir.
+User: kpi̇ kim təyin edir
+Bot:  - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
+                                    - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
+                                    - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri/n
+                                    - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür
+User: salam
+User: kpi
+Bot: ƏFG-lər, əməkdaşların işdəki məhsuldarlığını və verimliliyini ölçmək üçün müəyyən edilmiş dəyərlərdən ibarətdir.
+User: kpi
+Bot: ƏFG-lər, əməkdaşların şirkətin əsas məqsədlərinə necə nail olduğunu izləmək üçün müəyyən edilmiş göstəricilərdir.
+User: kpi
+Bot: KPİ-lər, əməkdaşların hər birinin iş performansını, məqsədlərə nail olmaqda necə yardım etdiklərini və işlərinin effektivliyini qiymətləndirmək üçün istifadə olunan müvafiq parametrlərdir.
+User: salam
+User: kpi
+Bot: KPİ-lər, əməkdaşların işdəki məhsuldarlığını ölçmək, işlərə necə yanaşdığını izləmək və şirkətin ümumi nailiyyətini qiymətləndirmək üçün istifadə olunan əsas məlumatlardır.
+User: huedhuhdw
+User: s
+User: salam
+User: kpi
+Bot: KPİ-lər, əməkdaşların hər birinin iş performansını, məqsədlərə nail olmaqda necə yardım etdiklərini və işlərinin effektivliyini qiymətləndirmək üçün istifadə olunan müvafiq parametrlərdir.
+User: kpi
+Bot: KPİ-lər, əməkdaşların işdəki məhsuldarlığını ölçmək, işlərə necə yanaşdığını izləmək və şirkətin ümumi nailiyyətini qiymətləndirmək üçün istifadə olunan əsas məlumatlardır.

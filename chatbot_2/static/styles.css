@@ -1,9 +1,9 @@
 .chat-container {
     width: 60%;
     margin: 0 auto;
-    border: 1px solid #ccc;
+    border: 1px solid #ffffff;
     padding: 10px;
-    background-color: #f5f5f5;
+    background-color: #ffffff;
 }
 
 .chat-box {
@@ -13,21 +13,46 @@
     padding: 10px;
     border: 1px solid #ccc;
     background-color: #ffffff;
+    border-radius: 20px; /* Add rounded corners */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Add a subtle shadow */
 }
 
 .input-area {
     display: flex;
     justify-content: space-between;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
 }
 
 .input-area input {
     flex-grow: 1;
     margin-right: 10px;
-    padding: 5px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+    font-size: 16px;
+}
+
+.input-area input:focus {
+    border-color: #0099ff;
 }
 
 .input-area button {
-    padding: 5px;
+    padding: 10px 20px;
+    background-color: #0099ff;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+.input-area button:hover {
+    background-color: #007acc;
 }
 
 .user-message, .bot-message {
@@ -37,9 +62,228 @@
 }
 
 .user-message {
-    background-color: #d9ecfd  ; /* Light blue */
+    background-color: #d9ecfd  ; 
 }
 
 .bot-message {
-    background-color: #e9ebed ; /* Light red color */
+    background-color: #e9ebed ; 
+}
+/* Additional CSS styles */
+body {
+    font-family: 'Roboto', sans-serif; /* Use Roboto font for the body */
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    overflow: auto;
+}
+
+.left-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+    width: 200px;
+    background-color: #f5f5f5;
+    overflow: auto;
+}
+
+.left-box button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    text-align: left;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    overflow : auto;
+}
+
+.left-box button:hover {
+    background-color: #0056b3;
+}
+
+.saved-chats {
+    margin-top: 20px;
+}
+
+.saved-chats h3 {
+    font-size: 18px; /* Increased font size for better readability */
+    color: #333; /* Darker color for better contrast */
+}
+
+.saved-chat {
+    margin-bottom: 10px;
+    padding: 15px; /* Increased padding for better spacing */
+    background-color: #eef3f8;
+    border-radius: 10px;
+    font-size: 16px; /* Increased font size for better readability */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Added box-shadow for depth */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Added transition for smoother hover effect */
+}
+
+.saved-chat:hover {
+    background-color: #dde6f1;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Increased box-shadow on hover for depth */
+}
+
+.saved-chat p {
+    margin: 0;
+    color: #333; /* Darker color for better contrast */
+}
+
+.saved-chat small {
+    color: #777;
+    font-size: 14px; /* Increased font size for better readability */
+}
+
+/* Styles for the chat container */
+.chat-container {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.chat-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow-y: auto;
+}
+
+.user-message, .bot-message {
+    display: inline-block;
+    max-width: 100%; /* Adjust this value as needed */
+    word-wrap: break-word;
+}
+
+.user-message {
+    align-self: flex-end;
+}
+
+.bot-message {
+    align-self: flex-start;
+}
+
+.image-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.image-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This will make sure the image covers the full area of the div */
+}
+
+.banner-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    font-size: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional: Add a shadow to the text */
+}
+
+.video-banner {
+    position: fixed;
+    bottom: 20px;
+    left: -27px; /* Move the video banner 20px to the right */
+    width: 300px;
+    height: 168px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.video-banner video {
+    width: 100%;
+    height: 100%;
+}
+
+.new-chat-button {
+    display: inline-flex; /* Use flexbox to align items */
+    align-items: center; /* Center items vertically */
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    outline: none;
+    transition: background-color 0.3s;
+    position: relative;
+    max-width: 150px; /* Adjust the maximum width as needed */
+}
+
+.new-chat-button:hover {
+    background-color: #0056b3;
+}
+
+.text {
+    flex-grow: 1; /* Allow the text to grow and fill available space */
+    text-align: center; /* Center the text horizontally */
+}
+
+.new-chat-button {
+    display: inline-flex; /* Use flexbox to align items */
+    align-items: center; /* Center items vertically */
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    outline: none;
+    transition: background-color 0.3s;
+    position: relative;
+    max-width: 150px; /* Adjust the maximum width as needed */
+}
+
+.new-chat-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    outline: none;
+    transition: background-color 0.3s;
+    position: relative;
+}
+
+.new-chat-button:hover {
+    background-color: #0056b3;
+}
+
+.icon-container {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 36px; /* Center the icon vertically */
+}
+
+.icon-container i {
+    color: #007bff; /* Color of the icon */
+}
+
+.text {
+    vertical-align: middle; /* Align the text vertically with the icon */
 }

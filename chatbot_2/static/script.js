@@ -13,6 +13,7 @@ function sendQuestion() {
             if (xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText).response;
                 displayResponse(response);
+                saveChat(); // Save the chat after each bot response
             }
         }
     };
@@ -20,36 +21,69 @@ function sendQuestion() {
     document.getElementById("user-input").value = "";
 }
 
-// Function to display a user question
-function displayUserQuestion(question) {
-    var chatBox = document.getElementById("chat-box");
-    var userLabel = document.createElement("div");
-    var userMessage = document.createElement("div");
-    userMessage.className = "user-message";
-    userMessage.textContent = question;
-    chatBox.appendChild(userLabel);
-    chatBox.appendChild(userMessage);
-}
+// Create a mapping between options and responses
+var optionResponses = {
+    "Direktor/Şöbə Rəisi": "İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)",
+    "Direktor müavini": "Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)",
+    "Menecer/Baş Mütəxəssis/Bölmə rəhbəri/Qrup rəhbəri": "Struktur bölmə rəhbəri",
+    "Struktur Bölmə Rəhbəri": "Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür",
+    "Şöbədə çalışan digər əməkdaşlar": "Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür"
+};
 
-// Function to display a bot response
 function displayResponse(response) {
     var chatBox = document.getElementById("chat-box");
-    var botLabel = document.createElement("div");
-    botLabel.textContent = "Bizdən Biri";
-    var botMessage = document.createElement("div");
-    botMessage.className = "bot-message";
-    botMessage.textContent = response;
-    chatBox.appendChild(botLabel);
-    chatBox.appendChild(botMessage);
 
     // Check if the response is a specific message
     if (response === "Təəssüf edirəm, sualınıza cavab verə bilmirəm. FAQ hissəsinə keçə bilərsiniz") {
+        // Display the message
+        var botLabel = document.createElement("div");
+        botLabel.textContent = "Bizdən Biri";
+        var botMessage = document.createElement("div");
+        botMessage.className = "bot-message";
+        botMessage.textContent = response;
+        chatBox.appendChild(botLabel);
+        chatBox.appendChild(botMessage);
+
         // Create a FAQ button
         var faqButton = document.createElement("button");
         faqButton.textContent = "FAQ";
         faqButton.onclick = displayCategories;
         chatBox.appendChild(faqButton);
+        scrollToBottom();
+
+        // Return from the function
+        return;
     }
+
+    // Check if the response includes a certain substring
+    if (response.includes("Direktor/ şöbə rəisi")) {
+        // Handle this specific response
+    } else {
+        // If the response does not include the specific substring, display it as usual
+        var botLabel = document.createElement("div");
+        botLabel.textContent = "Bizdən Biri";
+        var botMessage = document.createElement("div");
+        botMessage.className = "bot-message";
+        botMessage.textContent = response;
+        chatBox.appendChild(botLabel);
+        chatBox.appendChild(botMessage);
+    }
+
+    scrollToBottom();
+}
+
+function displaySelectedResponse(option) {
+    var chatBox = document.getElementById("chat-box");
+    var botLabel = document.createElement("div");
+    botLabel.textContent = "Bizdən Biri";
+    var botMessage = document.createElement("div");
+    botMessage.className = "bot-message";
+    botMessage.textContent = option + ": " + optionResponses[option]; // Display the selected option and the corresponding response
+    chatBox.appendChild(botLabel);
+    chatBox.appendChild(botMessage);
+    scrollToBottom();
+
+    
 }
 
 // Function to display categories
@@ -78,29 +112,35 @@ function displayCategories() {
         chatBox.appendChild(categoryButton);
     }
 }
+// Function to display the initial message
+function displayInitialMessage() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "/initial_message", true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            var initialMessage = JSON.parse(xhr.responseText).initial_message;
+            displayResponse(initialMessage);
+        }
+    };
+    xhr.send();
+}
 
-// Function to display subcategories
-function displaySubcategories(category, subcategories) {
+// Function to display the selected response
+function displaySelectedResponse(response) {
     var chatBox = document.getElementById("chat-box");
+    var botLabel = createMessageElement("bot-label", "Bizdən Biri");
+    var botMessage = createMessageElement("bot-message", response);
+    chatBox.appendChild(botLabel);
+    chatBox.appendChild(botMessage);
+    scrollToBottom();
+}
 
-    // Clear the chat box
-    chatBox.innerHTML = "";
-
-    // Create a header for the selected category
-    var categoryHeader = document.createElement("div");
-    categoryHeader.className = "category-header";
-    categoryHeader.textContent = category;
-    chatBox.appendChild(categoryHeader);
-
-    // Display the ready answer for the selected category
-    var readyAnswer = "Ready answer for " + category; // You can replace this with the actual answer
-    var readyAnswerDiv = document.createElement("div");
-    readyAnswerDiv.className = "bot-message";
-    readyAnswerDiv.textContent = "Bizdən Biri: " + readyAnswer;
-    chatBox.appendChild(readyAnswerDiv);
-
-    // Display the initial message again
-    displayInitialMessage();
+// Function to create a message element
+function createMessageElement(className, text) {
+    var element = document.createElement("div");
+    element.className = className;
+    element.textContent = text;
+    return element;
 }
 
 // Function to display the initial message
@@ -116,99 +156,105 @@ function displayInitialMessage() {
     xhr.send();
 }
 
-// Function to save a chat
+// Function to save the chat
 function saveChat() {
+    // Get the chat name based on the first user message
+    var firstUserMessage = document.querySelector(".user-message");
+    if (!firstUserMessage) return; // Exit if there are no user messages
+    var chatName = firstUserMessage.textContent.trim();
+
+    // Check if a chat with the same name already exists in localStorage
+    var savedChat = localStorage.getItem(chatName);
+    var chatContent = [];
+
     // Get the chat box
     var chatBox = document.getElementById("chat-box");
 
-    // Get the chat messages
-    var chatMessages = Array.from(chatBox.children).map(function(message) {
-        return {
-            sender: message.className,
-            message: message.textContent
-        };
+    // Get all chat messages
+    var chatMessages = chatBox.querySelectorAll(".user-message, .bot-message");
+
+    // Loop through each chat message and add it to the array
+    chatMessages.forEach(function(message) {
+        var sender = message.classList.contains("user-message") ? "user" : "bot";
+        var content = message.textContent.trim();
+        chatContent.push({ sender: sender, content: content });
     });
 
-    // Generate a name for the chat
-    var chatName;
-    if (chatMessages.length > 0) {
-        var firstMessage = chatMessages[0].message;
-        var firstKeyword = firstMessage.split(" ")[0]; // Get the first keyword
-        chatName = firstKeyword ? firstKeyword : "Chat";
+    // Save or update the chat content in localStorage
+    if (savedChat) {
+        // If the chat already exists, update its content
+        var existingChat = JSON.parse(savedChat);
+        existingChat = existingChat.concat(chatContent);
+        localStorage.setItem(chatName, JSON.stringify(existingChat));
     } else {
-        chatName = "Chat";
+        // If the chat doesn't exist, create a new entry
+        localStorage.setItem(chatName, JSON.stringify(chatContent));
+        // Update the list of saved chats
+        updateSavedChatsList(chatName);
     }
-
-    // Save the chat messages to localStorage
-    localStorage.setItem(chatName, JSON.stringify(chatMessages));
-
-    // Add the chat to the list of saved chats
-    var savedChatsList = document.getElementById("saved-chats-list");
-    var listItem = document.createElement("li");
-    listItem.textContent = chatName;
-    listItem.onclick = function() {
-        loadChat(chatName);
-    };
-    savedChatsList.appendChild(listItem);
 }
 
-// Function to load a chat
-function loadChat(chatId) {
-    // Get the saved chat messages from localStorage
-    var chat = JSON.parse(localStorage.getItem(chatId));
+// Function to load a saved chat
+function loadChat(chatName) {
+    // Retrieve the chat messages from localStorage based on the chatName
+    var chatMessages = JSON.parse(localStorage.getItem(chatName));
 
-    // Get the chat box
+    // Display the chat messages in the chat box
     var chatBox = document.getElementById("chat-box");
+    chatBox.innerHTML = ""; // Clear the existing chat messages
 
-    // Clear the chat box
-    chatBox.innerHTML = "";
-
-    // Display the saved chat messages
-    for (var i = 0; i < chat.length; i++) {
-        var messageDiv = document.createElement("div");
-        messageDiv.className = chat[i].sender;
-        messageDiv.textContent = chat[i].message;
-        chatBox.appendChild(messageDiv);
-    }
+    chatMessages.forEach(function(message) {
+        var messageElement = document.createElement("div");
+        messageElement.className = message.sender === "user" ? "user-message" : "bot-message";
+        messageElement.textContent = message.content;
+        chatBox.appendChild(messageElement);
+    });
 }
 
-// Call the displayInitialMessage function when the window loads
+// Function to update the list of saved chats in the UI
+function updateSavedChatsList(chatName) {
+    var savedChatsList = document.getElementById("saved-chats-list");
+
+    // Create a new list item for the saved chat
+    var chatListItem = document.createElement("li");
+    chatListItem.textContent = chatName;
+
+    // Add an event listener to load the chat when the item is clicked
+    chatListItem.addEventListener("click", function() {
+        loadChat(chatName);
+    });
+
+    // Append the new list item to the saved chats list
+    savedChatsList.appendChild(chatListItem);
+}
+// Function to scroll to the bottom of the chat box
+function scrollToBottom() {
+    var chatBox = document.getElementById("chat-box");
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// Function to display a user question
+function displayUserQuestion(question) {
+    var chatBox = document.getElementById("chat-box");
+    var userMessage = createMessageElement("user-message", question);
+    chatBox.appendChild(userMessage);
+    scrollToBottom();
+}
+
+// Initialize the chat when the window loads
 window.onload = function() {
     displayInitialMessage();
-
+    
     // Add event listener for the "New Chat" button
     document.getElementById("new-chat-button").addEventListener("click", function() {
-        // Clear the chat box for a new chat
-        document.getElementById("chat-box").innerHTML = "";
+        document.getElementById("chat-box").innerHTML = ""; // Clear the chat box for a new chat
         displayInitialMessage();
     });
 
-    // Add event listener for each saved chat item
-    var savedChatsItems = document.getElementById("saved-chats-list").children;
-    for (var i = 0; i < savedChatsItems.length; i++) {
-        savedChatsItems[i].addEventListener("click", function() {
-            loadChat(this.textContent);
-        });
-    }
-
-    // Add event listener for the "Save Chat" button
-    document.getElementById("save-chat-button").addEventListener("click", saveChat);
-};
-
-// Add event listener for the "New Chat" button
-document.getElementById("new-chat-button").addEventListener("click", function() {
-    // Clear the chat box for a new chat
-    document.getElementById("chat-box").innerHTML = "";
-    displayInitialMessage();
-});
-
-// Add event listener for each saved chat item
-var savedChatsItems = document.getElementById("saved-chats-list").children;
-for (var i = 0; i < savedChatsItems.length; i++) {
-    savedChatsItems[i].addEventListener("click", function() {
-        loadChat(this.textContent);
+    // Add event listener for the "Enter" key press in the input field
+    document.getElementById("user-input").addEventListener("keydown", function(event) {
+        if (event.keyCode === 13) { // Check if the key pressed is "Enter"
+            sendQuestion(); // Call the sendQuestion function
+        }
     });
-}
-
-// Add event listener for the "Save Chat" button
-document.getElementById("save-chat-button").addEventListener("click", saveChat);
+};
