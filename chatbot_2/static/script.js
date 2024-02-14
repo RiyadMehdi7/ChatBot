@@ -20,30 +20,51 @@ function sendQuestion() {
     xhr.send(JSON.stringify({ question: question }));
     document.getElementById("user-input").value = "";
 }
+// Function to update the list of saved chats in the UI
+function updateSavedChatsList(chatName) {
+    var savedChatsList = document.getElementById("saved-chats-list");
 
-// Create a mapping between options and responses
-var optionResponses = {
-    "Direktor/Şöbə Rəisi": "İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)",
-    "Direktor müavini": "Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)",
-    "Menecer/Baş Mütəxəssis/Bölmə rəhbəri/Qrup rəhbəri": "Struktur bölmə rəhbəri",
-    "Struktur Bölmə Rəhbəri": "Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür",
-    "Şöbədə çalışan digər əməkdaşlar": "Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür"
-};
+    // Create a new list item for the saved chat
+    var chatListItem = document.createElement("li");
+    chatListItem.textContent = chatName;
 
+    // Add an event listener to load the chat when the item is clicked
+    chatListItem.addEventListener("click", function() {
+        loadChat(chatName);
+    });
+
+    // Append the new list item to the saved chats list
+    savedChatsList.appendChild(chatListItem);
+}
+// Function to scroll to the bottom of the chat box
+function scrollToBottom() {
+    var chatBox = document.getElementById("chat-box");
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// Function to display a user question
+function displayUserQuestion(question) {
+    var chatBox = document.getElementById("chat-box");
+    var userMessage = createMessageElement("user-message", question);
+    chatBox.appendChild(userMessage);
+    scrollToBottom();
+}
+
+// Function to display a bot response
 function displayResponse(response) {
     var chatBox = document.getElementById("chat-box");
 
+    // Create a mapping between options and responses
+    var optionResponses = {
+        "Direktor/Şöbə Rəisi": "İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)",
+        "Direktor müavini": "Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)",
+        "Menecer/Baş Mütəxəssis/Bölmə rəhbəri/Qrup rəhbəri": "Struktur bölmə rəhbəri",
+        "Struktur Bölmə Rəhbəri": "Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür",
+        "Şöbədə çalışan digər əməkdaşlar": "Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür"
+    };
+
     // Check if the response is a specific message
     if (response === "Təəssüf edirəm, sualınıza cavab verə bilmirəm. FAQ hissəsinə keçə bilərsiniz") {
-        // Display the message
-        var botLabel = document.createElement("div");
-        botLabel.textContent = "Bizdən Biri";
-        var botMessage = document.createElement("div");
-        botMessage.className = "bot-message";
-        botMessage.textContent = response;
-        chatBox.appendChild(botLabel);
-        chatBox.appendChild(botMessage);
-
         // Create a FAQ button
         var faqButton = document.createElement("button");
         faqButton.textContent = "FAQ";
@@ -51,78 +72,32 @@ function displayResponse(response) {
         chatBox.appendChild(faqButton);
         scrollToBottom();
 
-        // Return from the function
-        return;
-    }
+    } else if (response.includes("Direktor/ şöbə rəisi")) {
+        // Display a specific message
+        var specificMessage = document.createElement("div");
+        specificMessage.textContent = "Daha dəqiq məlumat almaq üçün vəzifə kategoriyasını seçin :";
+        chatBox.appendChild(specificMessage);
 
-    // Check if the response includes a certain substring
-    if (response.includes("Direktor/ şöbə rəisi")) {
-        // Handle this specific response
+        // Create buttons for each option
+        var options = Object.keys(optionResponses);
+        options.forEach(function(option) {
+            var optionButton = document.createElement("button");
+            optionButton.textContent = option;
+            optionButton.onclick = function() {
+                // Handle the user's selection
+                displaySelectedResponse(optionResponses[option]);
+            };
+            chatBox.appendChild(optionButton);
+        });
     } else {
         // If the response does not include the specific substring, display it as usual
-        var botLabel = document.createElement("div");
-        botLabel.textContent = "Bizdən Biri";
-        var botMessage = document.createElement("div");
-        botMessage.className = "bot-message";
-        botMessage.textContent = response;
+        var botLabel = createMessageElement("bot-label", "Bizdən Biri");
+        var botMessage = createMessageElement("bot-message", response);
         chatBox.appendChild(botLabel);
         chatBox.appendChild(botMessage);
     }
 
     scrollToBottom();
-}
-
-function displaySelectedResponse(option) {
-    var chatBox = document.getElementById("chat-box");
-    var botLabel = document.createElement("div");
-    botLabel.textContent = "Bizdən Biri";
-    var botMessage = document.createElement("div");
-    botMessage.className = "bot-message";
-    botMessage.textContent = option + ": " + optionResponses[option]; // Display the selected option and the corresponding response
-    chatBox.appendChild(botLabel);
-    chatBox.appendChild(botMessage);
-    scrollToBottom();
-
-    
-}
-
-// Function to display categories
-function displayCategories() {
-    var chatBox = document.getElementById("chat-box");
-
-    // Clear the chat box
-    chatBox.innerHTML = "";
-
-    // List of categories
-    var categories = {
-        "Promotion": ["Maaş artımı", "Vəzifə Artımı"],
-        "Benefits": ["Sığorta", "Dəyərlisən"],
-        "Training": ["ISpring", "Məcburi təlimlər"],
-        "Performance review": ["Overall Information"]
-    };
-
-    // Create a button for each category and append it to the chat box
-    for (var category in categories) {
-        var categoryButton = document.createElement("button");
-        categoryButton.className = "category-button";
-        categoryButton.textContent = category;
-        categoryButton.onclick = function() {
-            displaySubcategories(this.textContent, categories[this.textContent]);
-        };
-        chatBox.appendChild(categoryButton);
-    }
-}
-// Function to display the initial message
-function displayInitialMessage() {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "/initial_message", true);
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-            var initialMessage = JSON.parse(xhr.responseText).initial_message;
-            displayResponse(initialMessage);
-        }
-    };
-    xhr.send();
 }
 
 // Function to display the selected response
@@ -211,35 +186,6 @@ function loadChat(chatName) {
     });
 }
 
-// Function to update the list of saved chats in the UI
-function updateSavedChatsList(chatName) {
-    var savedChatsList = document.getElementById("saved-chats-list");
-
-    // Create a new list item for the saved chat
-    var chatListItem = document.createElement("li");
-    chatListItem.textContent = chatName;
-
-    // Add an event listener to load the chat when the item is clicked
-    chatListItem.addEventListener("click", function() {
-        loadChat(chatName);
-    });
-
-    // Append the new list item to the saved chats list
-    savedChatsList.appendChild(chatListItem);
-}
-// Function to scroll to the bottom of the chat box
-function scrollToBottom() {
-    var chatBox = document.getElementById("chat-box");
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-// Function to display a user question
-function displayUserQuestion(question) {
-    var chatBox = document.getElementById("chat-box");
-    var userMessage = createMessageElement("user-message", question);
-    chatBox.appendChild(userMessage);
-    scrollToBottom();
-}
 
 // Initialize the chat when the window loads
 window.onload = function() {
@@ -258,3 +204,4 @@ window.onload = function() {
         }
     });
 };
+
