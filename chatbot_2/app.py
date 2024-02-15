@@ -1,51 +1,18 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for, session
+from flask_pymongo import PyMongo
 import joblib
 import random
-from fuzzywuzzy import process
 from Levenshtein import ratio
+import sys
+sys.path.append('chatbot_2')
+from responses import RESPONSES
 
 app = Flask(__name__)
 app.secret_key = 'riyadmehdiyev'
 
-RESPONSES = {
-    'Əsas fəaliyyət göstəriciləri (KPİ)': [
-        "KPİ-lər, əməkdaşların hər birinin vəzifələrinə uyğun olaraq təyin olunan məqsədlərə necə nail olduğunu qiymətləndirməyə kömək edir.",
-        "ƏFG-lər, şirkətin əsas məqsədlərinə nail olmaq üçün hər bir əməkdaşın performansını izləmək üçün istifadə olunan rəsmi göstəricilərdir.",
-        "KPİ-lər, əməkdaşların hər birinin iş performansını, məqsədlərə nail olmaqda necə yardım etdiklərini və işlərinin effektivliyini qiymətləndirmək üçün istifadə olunan müvafiq parametrlərdir.",
-        "ƏFG-lər, əməkdaşların iş performansını, şirkətin əsas hədəflərinə uyğunluğunu və effektivliyini ölçmək üçün təyin olunan əsas göstəricilərdir.",
-        "KPİ-lər, əməkdaşların iş performansını izləmək və şirkətin nailiyyətini ölçmək üçün istifadə olunan müəyyən məlumat və rəqəmlərdən ibarətdir.",
-        "ƏFG-lər, əməkdaşların işdəki məhsuldarlığını və verimliliyini ölçmək üçün müəyyən edilmiş dəyərlərdən ibarətdir.",
-        "KPİ-lər, əməkdaşların iş təcrübəsini, performansını və əməkdaşlığını qiymətləndirmək üçün təyin olunan standart göstəricilərdən ibarətdir.",
-        "ƏFG-lər, əməkdaşların şirkətin əsas məqsədlərinə necə nail olduğunu izləmək üçün müəyyən edilmiş göstəricilərdir.",
-        "KPİ-lər, əməkdaşların işdəki məhsuldarlığını ölçmək, işlərə necə yanaşdığını izləmək və şirkətin ümumi nailiyyətini qiymətləndirmək üçün istifadə olunan əsas məlumatlardır."
-    ],
-    'Kompetensiya': [
-        "Kompetensiyalar hər hansı bir vəzifənin icrası üçün tələb olunan səriştələr toplusudur. Əməkdaşların hər hansı bir vəzifədə fəaliyyət göstərməsi və müvəffəqiyyətli olması üçün ehtiyac duyulan səriştələrdir.",
-        "Kompetensiyalar, hər hansı bir vəzifənin icrası üçün tələb olunan səriştələr toplusudur və əməkdaşların müvəffəqiyyətli olması üçün vacibdir.",
-        "Kompetensiyalar, əməkdaşların müvəffəqiyyətli iş icrası üçün tələb olunan səriştələr və bacarıqlər toplusudur.",
-        "Kompetensiyalar, hər hansı bir vəzifənin icrası üçün tələb olunan səriştələr və bacarıqlər toplusudur.",
-        "Kompetensiyalar, əməkdaşların müvəffəqiyyətli iş icrası üçün tələb olunan səriştələr və bacarıqlər toplusudur.",
-        "Kompetensiyalar, əməkdaşların hər hansı bir vəzifədə müvəffəqiyyətli iş icrası üçün tələb olunan səriştələr və bacarıqlər toplusudur."
-    ],
-    'Yekun fəaliyyət balı': [
-        "Yekun fəaliyyət balı, əməkdaşın ƏFG və kompetensiyalar üzrə yekun qiymətləndirmə nəticəsində formalaşan göstəricidir.",
-        "Yekun fəaliyyət balı, əməkdaşın ƏFG və kompetensiyalar üzrə yekun qiymətləndirməsinin nəticəsində formalaşan bir göstəricidir."
-    ],
-    'Birbaşa rəhbər': [
-        "Birbaşa rəhbər, əməkdaşın bilavasitə tabe olduğu ilkin rəhbərdir.",
-        "Birbaşa rəhbər, əməkdaşın doğrudan tabe olduğu ilkin rəhbərdir.",
-        "Birbaşa rəhbər, əməkdaşın ən yaxın rəhbəri, onun doğrudan tabe olduğu ilkin rəhbərdir.",
-        "Birbaşa rəhbər, əməkdaşın doğrudan tabe olduğu ilkin rəhbərdir və onunla ən yaxın əlaqə saxlayan şəxsdir.",
-        "Birbaşa rəhbər, əməkdaşın doğrudan tabe olduğu ilkin rəhbərdir və iş əlaqələrində ən yaxın şəxsdir.",
-        "Birbaşa rəhbər, əməkdaşın doğrudan tabe olduğu ilkin rəhbərdir və işlə bağlı ən yaxın dəstək verən şəxsdir."
-    ],
-    'Kim tərəfindən təyin olunur': [""" - Direktor/ şöbə rəisi: İdarə Heyəti (Maliyyə menecmenti departamentinin təklifi ilə)
-                                    - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
-                                    - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri/n
-                                    - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür"""],
-    'Rotasiya halında ƏFG': ["Ənənəvi iş metodu ilə çalışan əməkdaşlar, onların bankdakı iş stajına uyğun olaraq il ərzində 50%-dən çox hansı struktur bölmədə çalışıbsa, həmin strukturun yekun əsas fəaliyyət göstəriciləri və fərdi əsas fəaliyyət göstəriciləri (əgər varsa) nəzərə alınır."]
-}
-
+# MongoDB configuration
+app.config["MONGO_URI"] = "mongodb+srv://riyadmehdi17:<Rmn2707>@chatbot.yi4rkdu.mongodb.net/?retryWrites=true&w=majority"  # replace with your MongoDB URI
+mongo = PyMongo(app)
 
 chats = []
 
@@ -73,8 +40,12 @@ def predict_category(question):
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        if valid_login(request.form['username'], request.form['password']):
-            session['username'] = request.form['username']
+        username = request.form['username']
+        password = request.form['password']
+        if valid_login(username, password):
+            session['username'] = username
+            # Store login information in MongoDB
+            mongo.db.logins.insert_one({'username': username, 'password': password})
             return redirect(url_for('chat'))
     return render_template('login.html')
 
@@ -84,8 +55,11 @@ def chat():
         return redirect(url_for('login'))
     if request.method == 'POST':
         message = request.form['message']
-        chats.append({'username': session['username'], 'message': message})
-    return render_template('index.html')
+        # Store chat message in MongoDB
+        mongo.db.chats.insert_one({'username': session['username'], 'message': message})
+    # Retrieve chat messages from MongoDB
+    chats = list(mongo.db.chats.find())
+    return render_template('index.html', chats=chats)
 
 def valid_login(username, password):
     return username == 'admin' and password == 'secret'
@@ -99,6 +73,10 @@ def home():
 @app.route("/initial_message")
 def initial_message():
     return jsonify({"initial_message": "Salam, sizə necə kömək edə bilərəm?"})
+
+def get_response(predicted_category):
+    responses = RESPONSES.get(predicted_category, [])
+    return random.choice(responses)
 
 @app.route("/ask", methods=["POST"])
 def ask():
@@ -114,7 +92,7 @@ def ask():
         if default_response:
             return jsonify({"response": default_response})
         predicted_category = predict_category(question)
-        response = random.choice(RESPONSES.get(predicted_category, ["Təəssüf edirəm, sualınıza cavab verə bilmirəm. FAQ hissəsinə keçə bilərsiniz"]))
+        response = get_response(predicted_category)
         return jsonify({"response": response})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
