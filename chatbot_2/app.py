@@ -98,7 +98,7 @@ def home():
 
 @app.route("/initial_message")
 def initial_message():
-    return jsonify({"initial_message": "Salam, sizə necə kömək göstərə bilərəm?"})
+    return jsonify({"initial_message": "Salam, sizə necə kömək edə bilərəm?"})
 
 @app.route("/ask", methods=["POST"])
 def ask():

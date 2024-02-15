@@ -91,10 +91,14 @@ body {
 
 .saved-chats {
     margin-top: 20px;
+    margin-left: auto; /* Align to the right edge of the parent container */
+    margin-right: auto; /* Align to the left edge of the parent container */
+    width: max-content; /* Set the width to the width of its content */
+    text-align: center; /* Center the content horizontally */
 }
 
 .saved-chats h3 {
-    font-size: 18px; /* Increased font size for better readability */
+    font-size: 20px; /* Increased font size for better readability */
     color: #333; /* Darker color for better contrast */
 }
 
@@ -106,7 +110,9 @@ body {
     font-size: 16px; /* Increased font size for better readability */
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Added box-shadow for depth */
     transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Added transition for smoother hover effect */
+    margin-top: 10px;
 }
+
 
 /* Styles for the chat container */
 .chat-container {
@@ -166,28 +172,46 @@ body {
     position: fixed;
     top: 10px;
     left: 10px;
-    padding: 10px 30px; /* Increase the horizontal padding */
-    font-size: 16px; /* Increase the font size */
-    color: #b51d29; /* Change the text color */
-    background-color: white; /* Change the background color */
-    border: none; /* Remove the border */
-    cursor: pointer; /* Change the cursor to a hand when hovering over the button */
+    padding: 10px 60px;
+    font-size: 16px;
+    color: #b51d29;
+    background-color: white;
+    border: 2px solid #b51d29;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 #new-chat-button::before {
-    content: ""; /* No content */
-    background: url('kapital\ bank\ life.jpeg') no-repeat center center; /* Set the image as a background */
-    background-size: contain; /* Resize the image to fit the container */
-    padding-right: 10px; /* Add some space between the icon and the text */
+    content: "";
     display: inline-block;
-    width: 24px;  /* Reduce the width */
-    height: 16px;  /* Reduce the height */
-    border-radius: 50%;  /* Makes the icon circular */
-    vertical-align: middle;  /* Aligns the icon vertically with the text */
-    margin-bottom: 5px;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    background: white url('kapital\ bank\ life.jpeg') no-repeat center;
+    background-size: contain;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 #new-chat-button:hover {
-    background-color: #e8e8e8; /* Darken the background color */
+    background-color: #b51d29;
+    color: white;
 }
 
+#new-chat-button:hover::before {
+    background-color: #b51d29;
+}
+
+/* Additional CSS styles */
+body {
+    font-family: 'Roboto', sans-serif; /* Use Roboto font for the body */
+    overflow: hidden; /* Prevent scrolling of the entire page */
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    /* overflow: auto; Remove overflow property */
+}
