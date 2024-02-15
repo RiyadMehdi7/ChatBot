@@ -85,6 +85,8 @@ function displayResponse(response) {
             optionButton.textContent = option;
             optionButton.onclick = function() {
                 // Handle the user's selection
+                var botLabel = createMessageElement("bot-label", "Bizdən Biri");
+                botLabel.classList.add("with-icon");
                 displaySelectedResponse(optionResponses[option]);
             };
             chatBox.appendChild(optionButton);
@@ -92,6 +94,7 @@ function displayResponse(response) {
     } else {
         // If the response does not include the specific substring, display it as usual
         var botLabel = createMessageElement("bot-label", "Bizdən Biri");
+        botLabel.classList.add("with-icon");
         var botMessage = createMessageElement("bot-message", response);
         chatBox.appendChild(botLabel);
         chatBox.appendChild(botMessage);
@@ -187,15 +190,20 @@ function loadChat(chatName) {
 }
 
 
+// Function to create a new chat
+function createNewChat() {
+    // Clear the chat box
+    var chatBox = document.getElementById("chat-box");
+    chatBox.innerHTML = '';
+
+    // Display the initial message
+    displayInitialMessage();
+}
+
 // Initialize the chat when the window loads
 window.onload = function() {
     displayInitialMessage();
-    
-    // Add event listener for the "New Chat" button
-    document.getElementById("new-chat-button").addEventListener("click", function() {
-        document.getElementById("chat-box").innerHTML = ""; // Clear the chat box for a new chat
-        displayInitialMessage();
-    });
+    document.getElementById('new-chat-button').addEventListener('click', createNewChat);
 
     // Add event listener for the "Enter" key press in the input field
     document.getElementById("user-input").addEventListener("keydown", function(event) {
@@ -204,4 +212,6 @@ window.onload = function() {
         }
     });
 };
+
+
 

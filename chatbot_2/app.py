@@ -44,7 +44,6 @@ RESPONSES = {
                                     - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri/n
                                     - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür"""],
     'Rotasiya halında ƏFG': ["Ənənəvi iş metodu ilə çalışan əməkdaşlar, onların bankdakı iş stajına uyğun olaraq il ərzində 50%-dən çox hansı struktur bölmədə çalışıbsa, həmin strukturun yekun əsas fəaliyyət göstəriciləri və fərdi əsas fəaliyyət göstəriciləri (əgər varsa) nəzərə alınır."]
-    
 }
 
 
@@ -53,7 +52,7 @@ chats = []
 model = joblib.load("chatbot_2/svm_classifier.pkl")
 vectorizer = joblib.load("chatbot_2/tfidf_vectorizer.pkl")
 
-keywords = ['rəhbər', 'birbaşa rəhbər', 'kpi', 'əfg', 'kompetensiya', 'yekun fəaliyyət balı', 'rotasiya']
+keywords = ['rəhbər', 'birbaşa rəhbər', 'kpi', 'əfg', 'kompetensiya', 'yekun fəaliyyət balı', 'rotasiya','şkala','qiymətləndirmə','kompetensiyalar','təyin olunur','şkalası']
 
 def get_closest_match(input_word):
     closest_match = max(keywords, key=lambda keyword: ratio(input_word, keyword))

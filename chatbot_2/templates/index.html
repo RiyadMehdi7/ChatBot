@@ -29,13 +29,11 @@
         </div>
         <div class="chat-container">
             <div class="chat-box" id="chat-box">
-                <!-- Initial message from the bot will be displayed here -->
             </div>
             <div class="input-area">
-                <input type="text" id="user-input" placeholder="Sualınızı bura yazın...">
+                <input type="text" id="user-input" placeholder="Sualınızı bura yazın..." oninput="hideTabs()">
                 <button onclick="sendQuestion()">Send</button>
             </div>
         </div>
-    </div>
 </body>
 </html>
