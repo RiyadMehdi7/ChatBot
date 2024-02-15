@@ -207,10 +207,27 @@ function displaySavedChats() {
         chatSquare.onclick = function() {
             displaySavedChat(chatData);
         };
+
+        // Create a delete button for each chat
+        var deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.onclick = function(event) {
+            event.stopPropagation(); // Prevent triggering chatSquare's onclick
+            deleteChat(chatName);
+        };
+        chatSquare.appendChild(deleteButton);
+
         savedChatsSection.appendChild(chatSquare);
     });
 }
+// Function to delete a saved chat
+function deleteChat(chatName) {
+    // Remove the chat from local storage
+    localStorage.removeItem(chatName);
 
+    // Refresh the display of saved chats
+    displaySavedChats();
+}
 // Function to extract timestamp from chat name
 function getTimestamp(chatName) {
     var timestampStr = chatName.split(' - ')[1];

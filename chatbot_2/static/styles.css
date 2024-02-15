@@ -238,3 +238,16 @@ h3 {
     background-color: #ddd;
     color: #333;
 }
+.saved-chat button {
+    margin-left: 10px;
+    color: #f00;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Add transition for smooth color change */
+}
+
+.saved-chat button:hover {
+    color: #ff0000; /* Change color on hover */
+    background-color: #ddd; /* Change background color on hover */
+}
