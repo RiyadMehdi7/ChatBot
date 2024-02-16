@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for, session
-from flask_pymongo import PyMongo
 import joblib
 import random
 from Levenshtein import ratio
@@ -10,30 +9,58 @@ from responses import RESPONSES
 app = Flask(__name__)
 app.secret_key = 'riyadmehdiyev'
 
-# MongoDB configuration
-app.config["MONGO_URI"] = "mongodb+srv://riyadmehdi17:<Rmn2707>@chatbot.yi4rkdu.mongodb.net/?retryWrites=true&w=majority"  # replace with your MongoDB URI
-mongo = PyMongo(app)
-
 chats = []
 
 model = joblib.load("chatbot_2/svm_classifier.pkl")
 vectorizer = joblib.load("chatbot_2/tfidf_vectorizer.pkl")
 
-keywords = ['rəhbər', 'birbaşa rəhbər', 'kpi', 'əfg', 'kompetensiya', 'yekun fəaliyyət balı', 'rotasiya','şkala','qiymətləndirmə','kompetensiyalar','təyin olunur','şkalası']
+keywords = ['rəhbər', 'birbaşa rəhbər', 'kpi', 'əfg', 'kompetensiya', 'yekun fəaliyyət balı', 'rotasiya','şkala','qiymətləndirmə','kompetensiyalar','təyin olunur','şkalası','karyera','dəyişiklik','intizam tənbehi','töhmət', 'kiçik mütəxəssis',
+            'texniki bacarıq','qrupdaxili yerdəyişmə', 'qrupdaxili keçid']
+
+keyword_responses = {
+    'rəhbər': 'Birbaşa rəhbər',
+    'birbaşa rəhbər': 'Birbaşa rəhbər',
+    'kpi': 'Əsas fəaliyyət göstəriciləri (KPİ)',
+    'əfg': 'Əsas fəaliyyət göstəriciləri (KPİ)',
+    'kompetensiya': 'Kompetensiya',
+    'yekun fəaliyyət balı': 'Yekun fəaliyyət balı',
+    'rotasiya': 'Rotasiya halında ƏFG',
+    'qiymətləndirmə': 'Yekun fəaliyyət balı',
+    'kompetensiyalar': 'Kompetensiya',
+    'təyin olunur': 'Kim tərəfindən təyin olunur',
+    'karyera': 'Karyera istiqamətini dəyişmiş əməkdaşın artımı',
+    'dəyişiklik': 'Karyera istiqamətində dəyişiklik',
+    'intizam tənbehi': 'Karyera inkişafı meyarlarında intizam tənbeh',
+    'töhmət': 'Karyera inkişafı meyarlarında intizam tənbeh',
+    'kiçik mütəxəssis': 'Kiçik mütəxəssislərin vəzifə artımı',
+    'texniki bacarıq': 'Texniki bacarıqlar',
+    'qrupdaxili yerdəyişmə': 'Qrupdaxili yerdəyişmə',
+    'qrupdaxili keçid': 'Qrupdaxili yerdəyişmə'
+}
 
 def get_closest_match(input_word):
+    threshold = 0.6  # Set a threshold for the Levenshtein ratio
     closest_match = max(keywords, key=lambda keyword: ratio(input_word, keyword))
-    return closest_match if ratio(input_word, closest_match) > 0.8 else None
+    if ratio(input_word, closest_match) >= threshold:
+        return closest_match
+    else:
+        return None
 
 def check_keywords(question):
     words = question.lower().split()
     for word in words:
         closest_match = get_closest_match(word)
-        if closest_match:
-            return None
+        if closest_match and closest_match in keyword_responses:
+            category = keyword_responses[closest_match]
+            return random.choice(RESPONSES[category])
     return "Təəssüf edirəm, sualınıza cavab verə bilmirəm. FAQ hissəsinə keçə bilərsiniz"
 
 def predict_category(question):
+    words = question.lower().split()
+    for word in words:
+        closest_match = get_closest_match(word)
+        if closest_match and closest_match in keyword_responses:
+            return keyword_responses[closest_match]
     question_vector = vectorizer.transform([question])
     return model.predict(question_vector)[0]
 
@@ -44,8 +71,6 @@ def login():
         password = request.form['password']
         if valid_login(username, password):
             session['username'] = username
-            # Store login information in MongoDB
-            mongo.db.logins.insert_one({'username': username, 'password': password})
             return redirect(url_for('chat'))
     return render_template('login.html')
 
@@ -55,10 +80,7 @@ def chat():
         return redirect(url_for('login'))
     if request.method == 'POST':
         message = request.form['message']
-        # Store chat message in MongoDB
-        mongo.db.chats.insert_one({'username': session['username'], 'message': message})
-    # Retrieve chat messages from MongoDB
-    chats = list(mongo.db.chats.find())
+        chats.append({'username': session['username'], 'message': message})
     return render_template('index.html', chats=chats)
 
 def valid_login(username, password):
@@ -88,6 +110,11 @@ def ask():
         greetings = ['necəsən', 'nə var', 'nə var nə yox','necəsən?']
         if question in greetings:
             return jsonify({"response": "Mən yaxşıyam, təşəkkürlər! Sizə necə kömək edə bilərəm?"})
+        for keyword in keywords:
+            if keyword in question:
+                category = keyword_responses[keyword]
+                response = random.choice(RESPONSES[category])
+                return jsonify({"response": response})
         default_response = check_keywords(question)
         if default_response:
             return jsonify({"response": default_response})

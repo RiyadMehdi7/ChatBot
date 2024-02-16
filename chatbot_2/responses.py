@@ -34,5 +34,12 @@ RESPONSES = {
                                     - Direktor müavini: Struktur bölmə rəhbəri (Əlavə ƏFG təyin olunmadığı təqdirdə direktorun ƏFG-na bərabər götürülür)
                                     - Menecer/ baş mütəxəssis/ bölmə rəhbəri/ qrup rəhbəri (aylıq/rüblük mükafat alan əməkdaşlar istisna edilməklə): Struktur bölmə rəhbəri/n
                                     - Struktur bölmə rəhbəri: Şöbədə çalışan digər əməkdaşlar Çalışdığı strukturun ƏFG və hədəflərinə bərabər götürülür"""],
-    'Rotasiya halında ƏFG': ["Ənənəvi iş metodu ilə çalışan əməkdaşlar, onların bankdakı iş stajına uyğun olaraq il ərzində 50%-dən çox hansı struktur bölmədə çalışıbsa, həmin strukturun yekun əsas fəaliyyət göstəriciləri və fərdi əsas fəaliyyət göstəriciləri (əgər varsa) nəzərə alınır."]
+    'Rotasiya halında ƏFG': ["Ənənəvi iş metodu ilə çalışan əməkdaşlar, onların bankdakı iş stajına uyğun olaraq il ərzində 50%-dən çox hansı struktur bölmədə çalışıbsa, həmin strukturun yekun əsas fəaliyyət göstəriciləri və fərdi əsas fəaliyyət göstəriciləri (əgər varsa) nəzərə alınır."],
+    'Karyera istiqamətində dəyişiklik':["Karyera istiqamətində dəyişiklik Kapital Bankda 1 il və daha çox təcrübəsi olan əməkdaşlara şamil edilir."],
+    'Karyera istiqamətini dəyişmiş əməkdaşın artımı': ["Bankda karyera istiqamətini dəyişmiş əməkdaş yeni vəzifə üzrə 1 ili tamamlayıbsa, vəzifə artımına baxıla bilər."],
+    'Karyera inkişafı meyarlarında intizam tənbeh': ["Baş ofisdə çalışan əməkdaşlarda son 3 ay ərzində yazılı xəbərdarlıq və son 6 ay ərzində intizam tənbehi (töhmət və ya şiddətli töhməti) olmamalıdır."],
+    'Kiçik mütəxəssislərin vəzifə artımı': ["Baş ofis əməkdaşları üçün kompetensiyalar üzrə qiymətləndirmə nəticələrinə əsasən nəzərə alınır."],
+    'Texniki bacarıqlar': ["Əməkdaşın vəzifə öhdəliklərini yerinə yetirməsi üçün tələb olunan funksional bilik və bacarıqlardır."],
+    'Qrupdaxili yerdəyişmə': ["Paşa Holdinq MMC və onun törəmə təsərrüfat cəmiyyətləri üzrə yerdəyişmə nəzərdə tutulur."],
 }
+ 
